@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Block Spawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 517.904, 75.7285 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 29.7831, 410.475 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 27.4148, 412.287 )
+
+[node name="World" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2( -0.939344, -1.51901 )
+anchor_mode = 0
+current = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 768.0
+rect_scale = Vector2( 1, 1.00654 )
+color = Color( 0.117647, 0.219608, 0.168627, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Block Spawner" parent="." instance=ExtResource( 2 )]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 418.607, 691.55 )
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Top" type="Area2D" parent="Walls"]
+position = Vector2( 511.945, -69.2964 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Top"]
+shape = SubResource( 1 )
+
+[node name="Bottom" type="Area2D" parent="Walls"]
+position = Vector2( 514.774, 832.971 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Bottom"]
+shape = SubResource( 1 )
+
+[node name="Left" type="Area2D" parent="Walls"]
+position = Vector2( -22.652, 391.506 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Left"]
+shape = SubResource( 2 )
+
+[node name="Right" type="Area2D" parent="Walls"]
+position = Vector2( 1050, 405.21 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Right"]
+shape = SubResource( 3 )
+
+[node name="Ball" parent="." instance=ExtResource( 4 )]
+position = Vector2( 512, 444 )

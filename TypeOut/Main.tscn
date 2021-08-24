@@ -75,4 +75,4 @@ __meta__ = {
 shape = SubResource( 3 )
 
 [node name="Ball" parent="." instance=ExtResource( 4 )]
-position = Vector2( 512, 444 )
+position = Vector2( 476, 450 )

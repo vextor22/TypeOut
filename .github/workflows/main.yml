@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 env:
   GODOT_VERSION: 3.2.3
-  EXPORT_NAME: type-out
+  EXPORT_NAME: TypeOut
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   export-windows:
